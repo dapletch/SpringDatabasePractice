@@ -16,8 +16,12 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = "com.spring.jdbc.*")
 public class JdbcConfiguration {
 
+    private JdbcProperties jdbcProperties;
+
     @Autowired
-    private  JdbcProperties jdbcProperties;
+    public JdbcConfiguration(JdbcProperties jdbcProperties) {
+        this.jdbcProperties = jdbcProperties;
+    }
 
     @Bean
     public DataSource dataSource() {
